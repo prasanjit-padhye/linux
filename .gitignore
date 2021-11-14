@@ -70,13 +70,13 @@ modules.order
 
 
 
-!CMPE283/CMPE283-1.dwo
-!CMPE283/CMPE283-1.ko
-!CMPE283/CMPE283-1..mod
-!CMPE283/CMPE283-1.mod.c
-!CMPE283/CMPE283-1.mod.dwo
-!CMPE283/CMPE283-1.mod.o
-!CMPE283/CMPE283-1.o
+!CMPE283/cmpe283-1.dwo
+!CMPE283/cmpe283-1.ko
+!CMPE283/cmpe283-1..mod
+!CMPE283/cmpe283-1.mod.c
+!CMPE283/cmpe283-1.mod.dwo
+!CMPE283/cmpe283-1.mod.o
+!CMPE283/cmpe283-1.o
 !CMPE283/modules.order
 !CMPE283/Module.symvers
 
