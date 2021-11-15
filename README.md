@@ -2,6 +2,8 @@ Assignment 1
 
 Prasanjit Padhye (SJSU ID: 015227771)
 
+Steps involved in completing the assignment:
+
 •	Download and install VMware Fusion.
 
 •	Download ubuntu iso file.
