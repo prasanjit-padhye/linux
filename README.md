@@ -3,21 +3,37 @@ Assignment 1
 Prasanjit Padhye (SJSU ID: 015227771)
 
 •	Download and install VMware Fusion.
+
 •	Download ubuntu iso file.
+
 •	Create a ubuntu VM on VMware workstation.
+
 •	Setup Ubuntu selecting 200 GB of space and 5GB of memory.
+
 •	Go into settings of the VM, in the processor section, check the checkboxes under Advanced Options.
+
 •	Fork the original linux repository from torvalds/linux into your Github account.
+
 •	In the ubuntu VM terminal run the command cat /proc/cpuinfo to check whether vmx flags are present and virtualization capabilities are present for the VM.
+
 •	Install git on the VM by using the command "sudo apt install git-all".
+
 •	Clone the repository which we forked earlier from torvalds/linux on your machine.
+
 •	Run cd linux to switch to the repo which we just cloned.
+
 •	In the cmpe283-1.c file downloaded from Canvas add the sections of code for primary procbased controls, secondary procbased controls, entry and exit controls after referring to the SDM volume 3 module 23.6.x and 23.7 and 23.8.
+
 •	Add the modified cmpe283-1.c file and the Makefile to a folder CMPE283 and put the folder under the cloned linux directory.
+
 •	Switch to the linux directory.
+
 •	Run "uname -a" command to check the version (check if there is a version mismatch between the cloned version and the current VM linux distribution we are running).
+
 •	To run certain make commands, we need to run the install command "sudo apt-get install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf".
+
 •	Follow the following sequence of commands to build and install the kernel modules
+
 1.	"make menuconfig" (do not save any changes in the UI and exit from it).
 2.	"cp /boot/config- {current version we got from "uname -a" command without {} braces} .config".
 3.	"make oldconfig" (press enter to answer all the questions).
