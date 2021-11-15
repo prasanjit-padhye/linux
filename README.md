@@ -2,8 +2,6 @@ Assignment 1
 
 Prasanjit Padhye (SJSU ID: 015227771)
 
-Steps involved in completing the assignment:
-
 •	Download and install VMware Fusion.
 •	Download ubuntu iso file.
 •	Create a ubuntu VM on VMware workstation.
@@ -36,7 +34,6 @@ Steps involved in completing the assignment:
 14.	Run "make" command check if there are any errors in the file or an error asking to include license. In case of an error for license, go to the cmpe283-1.c file and at the bottom add "MODULE_LICENSE ("GPL v2");" and save the file.
 15.	After the make command is successfully executed, check that the .ko file is created using "lsmod | grep CMPE283".
 16.	"sudo insmod cmpe283-1.ko" to insert our module.
-17.	Run "dmesg" command to check.
-18.	We can see the capability info for all the MSR which we have defined in the cmpe283-1.c file under the heading "CMPE 283 Assignment 1 Module Start".
-19.	To remove the module run "sudo rmmod cmpe283-1".
-20.	Run "dmesg" to check the exit message ""CMPE 283 Assignment 1 Module Exits".
+17.	Run "dmesg" command to check whether we can see the capability info for all the MSR which we have defined in the cmpe283-1.c file under the heading "CMPE 283 Assignment 1 Module Start".
+18.	To remove the module run "sudo rmmod cmpe283-1".
+19.	Run "dmesg" to check the exit message ""CMPE 283 Assignment 1 Module Exits".
