@@ -36,7 +36,7 @@ Steps involved in completing the assignment:
 
 •	To run certain make commands, we need to run the install command "sudo apt-get install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf".
 
-•	Follow the following sequence of commands to build and install the kernel modules
+•	Follow the following sequence of commands to build and install the kernel modules:
 
 1.	"make menuconfig" (do not save any changes in the UI and exit from it).
 2.	"cp /boot/config- {current version we got from "uname -a" command without {} braces} .config".
