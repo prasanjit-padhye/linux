@@ -1,4 +1,4 @@
-Assignment 1
+CMPE 283 Assignment 1
 
 Prasanjit Padhye (SJSU ID: 015227771)
 
