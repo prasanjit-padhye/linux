@@ -40,4 +40,3 @@ Steps involved in completing the assignment:
 18.	We can see the capability info for all the MSR which we have defined in the cmpe283-1.c file under the heading "CMPE 283 Assignment 1 Module Start".
 19.	To remove the module run "sudo rmmod cmpe283-1".
 20.	Run "dmesg" to check the exit message ""CMPE 283 Assignment 1 Module Exits".
-![image](https://user-images.githubusercontent.com/91384351/141708658-910940f7-acba-4585-afd9-d8f596b1d7a3.png)
