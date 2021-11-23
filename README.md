@@ -57,3 +57,40 @@ Steps involved in completing the assignment:
 17.	Run "dmesg" command to check whether we can see the capability info for all the MSR which we have defined in the cmpe283-1.c file under the heading "CMPE 283 Assignment 1 Module Start".
 18.	To remove the module run "sudo rmmod cmpe283-1".
 19.	Run "dmesg" to check the exit message ""CMPE 283 Assignment 1 Module Exits".
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Assignment 2
+
+Prasanjit Padhye
+SJSU ID: 015227771
+
+Steps to Complete Assignment 2:
+
+•	Start with Assignment 1 setup.
+•	Modify cupid.c and vmx.c as follows:
+o	Return total number of exits in eax register for the leaf node for eax values as 0x4fffffff.
+o	Return number of exits in eax for exit type provided in ecx when leaf node value is 0x4ffffffd.
+o	We can find the modified values for cupid.c and vmx.c under arch/x86/kvm/cupid.c and arch/ x86/kvm/vmx.c respectively.
+o	We declare 2 variables (extern) in vmx.c under arch/ x86/kvm/vmx.c.
+o	Increment total exits each time there is an exit, increment its corresponding value for the reasons index in the array.
+o	Save the modification made in both files.
+o	Run following sequence of commands:
+1.	make -j 6 modules
+2.	make INSTALL_MOD_STRIP=1 modules_install && make install
+3.	lsmod | grep kvm – to check whether module is already loaded
+4.	If the module is already loaded, run ‘rmmod kvm_intel’ and rmmod kvm
+5.	modprobe kvm
+
+o	To test the modifications, we install a VM inside our VM.
+o	Install Virtual Machine Manager from Ubuntu Software Center.
+o	Download the Ubuntu .iso file and create Ubuntu VM following the same steps as in Assignment 1.
+o	Once VM is created, install cupid package using the command ‘sudo apt-get install cpuid’.
+o	We use the command ‘cpuid -l 0x4fffffff’ to check the total exits returned in eax register.
+
+<img width="1792" alt="Screen Shot 2021-11-22 at 9 36 04 PM" src="https://user-images.githubusercontent.com/91384351/142980666-a85e24a9-fde3-48f4-8197-dd501d1ef253.png">
+
+
+o	We use the command ‘cpuid -l 0x4ffffffd -s {exit_code}’ (e.g.: cpuid -l 0x4ffffffd -s 71) for which we want to check the number of exits. 
+
+<img width="1792" alt="Screen Shot 2021-11-22 at 9 38 38 PM" src="https://user-images.githubusercontent.com/91384351/142980689-46d33507-7fe8-4e18-9117-fa989f38c13a.png">
