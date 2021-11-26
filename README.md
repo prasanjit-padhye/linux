@@ -106,3 +106,9 @@ o	We use the command ‘cpuid -l 0x4fffffff’ to check the total exits returned
 o	We use the command ‘cpuid -l 0x4ffffffd -s {exit_code}’ (e.g.: cpuid -l 0x4ffffffd -s 71) for which we want to check the number of exits. 
 
 <img width="1792" alt="Screen Shot 2021-11-22 at 9 38 38 PM" src="https://user-images.githubusercontent.com/91384351/142980689-46d33507-7fe8-4e18-9117-fa989f38c13a.png">
+
+Answers for 0x4ffffffd:
+
+o	Increase in total number of exits is not stable. It is 420 at times and other times there is an increase of 670-700. Exits for MSR access, EPT violations, IO     Instructions are observed frequently. For a VM Reboot, around 1174500 exits were observed.
+
+o	Most frequent exits are MSR access and EPT violations, least frequent exits are 0 (Triple Fault, VMWRITE, ets.), very few exits for DR_Access, APIC Access.
