@@ -118,6 +118,7 @@ o	Most frequent exits are MSR access and EPT violations, least frequent exits ar
 Assignment 3
 
 Prasanjit Padhye
+
 SJSU ID: 015227771
 
 Steps to Complete Assignment 3:
@@ -126,21 +127,21 @@ o	Start with Assignment 2 setup.
 
 o	Modify cpuid.c file and vmx.c file as follows:
 
-  o	When the leafnode eax value is 0x4FFFFFFE,return the high 32 bits of the total time spent processing all exits in %ebx and the low 32 bits of the total time       spent processing all exits in %ecx. We achieve this by declaring a variable to store the total time and adding the time spent processing each exit to this         total time.
+  -	When the leafnode eax value is 0x4FFFFFFE,return the high 32 bits of the total time spent processing all exits in %ebx and the low 32 bits of the total time     spent processing all exits in %ecx. We achieve this by declaring a variable to store the total time and adding the time spent processing each exit to this       total time.
 
-  o	When the leafnode eax value is 0x4FFFFFFC and there is an exit number provided in ecx as input, return time spent processing that particular exit, return high     32 bits of the total time spent for that exit in %ebx and the low 32 bits of the total time spent for that exit in %ecx. We achieve this by declaring an array     for all the exits and storing time spent for each exit in the corresponding array element.
+  -	When the leafnode eax value is 0x4FFFFFFC and there is an exit number provided in ecx as input, return time spent processing that particular exit, return         high 32 bits of the total time spent for that exit in %ebx and the low 32 bits of the total time spent for that exit in %ecx. We achieve this by                 declaring an array for all the exits and storing time spent for each exit in the corresponding array element.
 
 o	Save the modifications made in both the files.
 
 o	Run the following sequence of commands:
 
-  o	make -j 4 modules
+  -	make -j 4 modules
 
-  o	make INSTALL_MOD_STRIP=1 modules_install && make install
+  -	make INSTALL_MOD_STRIP=1 modules_install && make install
 
-  o	run "lsmod | grep kvm" to see if the module is already loaded
+  -	run "lsmod | grep kvm" to see if the module is already loaded
 
-  o	if the comamnd returns that the module is already loaded run "rmmod kvm" and "rmmod kvm_intel" if both are present, run "modprobe kvm"
+  -	if the comamnd returns that the module is already loaded run "rmmod kvm" and "rmmod kvm_intel" if both are present, run "modprobe kvm"
 
 o	Now in order to test the modifications we made we open the nested VM.
 
