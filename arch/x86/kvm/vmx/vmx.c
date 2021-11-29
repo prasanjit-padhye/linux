@@ -72,6 +72,8 @@ MODULE_LICENSE("GPL");
 
 extern u32 total_exit;
 extern u32 exit_rs[69];
+extern uint64_t time_per_reason[69];
+extern uint64_t tot_time;
 
 #ifdef MODULE
 static const struct x86_cpu_id vmx_cpu_id[] = {
@@ -6094,7 +6096,18 @@ unexpected_vmexit:
 
 static int vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 {
+	//int ret = __vmx_handle_exit(vcpu, exit_fastpath);
+	
+	struct vcpu_vmx *vmx = to_vmx(vcpu);
+	union vmx_exit_reason exit_reason = vmx->exit_reason;
+	u32 reason = exit_reason.basic;
+	
+	uint64_t start_time = rdtsc();
 	int ret = __vmx_handle_exit(vcpu, exit_fastpath);
+	uint64_t end_time = rdtsc();
+	
+	tot_time = tot_time + end_time - start_time;
+	time_per_reason[reason] = time_per_reason[reason] + end_time - start_time;
 
 	/*
 	 * Exit to user space when bus lock detected to inform that there is

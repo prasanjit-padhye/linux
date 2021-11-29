@@ -37,6 +37,10 @@ u32 total_exit=0;
 EXPORT_SYMBOL(total_exit);
 u32 exit_rs[69]={0};
 EXPORT_SYMBOL(exit_rs);
+uint64_t time_per_reason[69];
+EXPORT_SYMBOL(time_per_reason);
+uint64_t tot_time;
+EXPORT_SYMBOL(tot_time);
 
 
 static u32 xstate_required_size(u64 xstate_bv, bool compacted)
@@ -1269,6 +1273,35 @@ int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 			ecx = 0x00000000;
 			edx = 0xffffffff;
 		}
+	}
+	
+	else if (eax == 0x4ffffffe){
+		ebx = (tot_time >> 32);
+		ecx = (tot_time & 0xffffffff);
+	}
+	
+	else if (eax == 0x4ffffffc){
+		if(ecx >= 0 && ecx <= 69 && ecx != 35 && ecx != 38 && ecx != 42 && ecx != 65){
+			if(ecx != 3 && ecx != 4 && ecx != 5 && ecx != 6 && ecx != 11 && ecx != 33 && ecx != 34 && ecx != 51 && ecx < 63){
+				ebx = (time_per_reason[ecx] >> 32);
+				ecx = (time_per_reason[ecx] & 0xffffffff);
+			}
+			
+			else{
+				eax = 0x00000000;
+				ebx = 0x00000000;
+				ecx = 0x00000000;
+				edx = 0x00000000;
+			}
+	}
+	
+	else{
+		eax = 0x00000000;
+		ebx = 0x00000000;
+		ecx = 0x00000000;
+		edx = 0xffffffff;
+	}
+	
 	}
 	
 	else{
