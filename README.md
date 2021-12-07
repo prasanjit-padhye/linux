@@ -174,4 +174,13 @@ o	Run dmesg command to check count of exits for every exit reason with ept = 1 a
 
 o	ept = 1
 
+<img width="1792" alt="Screen Shot 2021-12-04 at 6 43 17 PM" src="https://user-images.githubusercontent.com/91384351/144967032-bd852b2a-f7fd-4c74-a2d1-b157d0bc57d8.png">
+
+
 o	ept = 0
+<img width="1792" alt="Screen Shot 2021-12-04 at 7 35 36 PM" src="https://user-images.githubusercontent.com/91384351/144967056-5ee9130a-e5af-4146-a773-70c9c9e06bee.png">
+
+Answers for the questions:
+
+o  Exit output is not as we expected after observing the exits in nested paging. Some exits which had low count/no count in nested paging, there are a lot of exits    in shadow paging.
+o	 In shadow paging there are no EPT exits. We see lot of exits in the case of CR_ACCESS. Exits for INVLPG, INVPCID are also observed. There are a lot of CR_ACCESS    exits observed as the Hypervisor takes an exit when the CR is accessed and teh INVLPG are observed as Hypervisor takes an exit to invalidate translations in the    TLB.
