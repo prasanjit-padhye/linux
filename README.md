@@ -156,3 +156,22 @@ o	Questions for 0x4fffffffc :
 1. Increase in the number of total exits is not stable. We notice a very high number of exits for MSR access.For a full VM reboot we noted around 1174550            exits.
 
 2. Most frequent exits are EPT violations and MSR access and the least frequent exits are 0 (for VMWRITE, Triple Fault, etc.) and there are few exits for            DR_Access,APIC access.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment 4
+
+Prasanjit Padhye
+
+SJSU ID: 015227771
+
+Steps to Complete Assignment 4:
+
+
+o	Start with Assignment 3 setup.
+
+o	Run dmesg command to check count of exits for every exit reason with ept = 1 and ept = 0.
+
+o	ept = 1
+
+o	ept = 0
